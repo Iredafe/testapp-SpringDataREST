@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dafe.spring.applogger.dao.UserLogDAO;
 import com.dafe.spring.applogger.entity.UserLog;
-
+// this api selects all the 
 @RestController
 @RequestMapping("/api")
 public class UserLogRestController {

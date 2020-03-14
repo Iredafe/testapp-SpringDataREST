@@ -27,7 +27,6 @@ public class UserLogDaoHibernateImplementation implements UserLogDAO {
 	}
 	
 	@Override
-	@Transactional
 	public List<UserLog> findAll() {
 
 		//get the current hibernate session from entity manager
@@ -45,6 +44,47 @@ public class UserLogDaoHibernateImplementation implements UserLogDAO {
 		//return the results
 		
 		return userLog;
+	}
+
+	@Override
+	public UserLog findById(int theId) {
+		
+		//get the current session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		//get the userLog
+		UserLog userLog = 
+				currentSession.get(UserLog.class, theId);
+		
+		
+		//return the userLog
+		
+		return null;
+	}
+
+	@Override
+	public void save(UserLog theUserLog) {
+		//get the current session
+		Session currentSession = entityManager.unwrap(Session.class);
+	
+		//save
+	currentSession.saveOrUpdate(theUserLog);
+		
+	}
+
+	@Override
+	public void deleteById(int theId) {
+		//get the current hibernate session
+				Session currentSession = entityManager.unwrap(Session.class);
+			
+	//delete object with primary key
+				Query theQuery = 
+						currentSession.createQuery("delete from log where id=:theuserId");
+				
+				theQuery.setParameter("theuserId", theId);
+				
+				theQuery.executeUpdate();
+				
 	}
 
 } 

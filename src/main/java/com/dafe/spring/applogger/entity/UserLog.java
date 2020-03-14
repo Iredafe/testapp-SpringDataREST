@@ -1,10 +1,14 @@
 package com.dafe.spring.applogger.entity;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,7 +28,9 @@ public class UserLog {
 	@Column(name="session_id")
 	private String sessionId;
 	
-	
+	@OneToMany
+	@JoinColumn(name="log_id")
+	private ArrayList<Action>action;
 	//define constructors
 	
 	public UserLog() {
@@ -68,6 +74,7 @@ public class UserLog {
 		this.sessionId = sessionId;
 	}
 
+	//define toString
 
 	@Override
 	public String toString() {
@@ -75,7 +82,6 @@ public class UserLog {
 	}
 
 		
-	//define toString
 	
 	
 }
