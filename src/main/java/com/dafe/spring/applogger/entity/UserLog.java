@@ -2,6 +2,7 @@ package com.dafe.spring.applogger.entity;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class UserLog {
 	@Column(name="session_id")
 	private String sessionId;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="log_id")
 	private ArrayList<Action>action;
 	//define constructors
@@ -81,7 +82,14 @@ public class UserLog {
 		return "Log [id=" + id + ", userId=" + userId + ", sessionId=" + sessionId + "]";
 	}
 
+	public void addAction(Action tempAction) {
+	
+		if (action == null) {
+		action = new ArrayList<>();
+		}
 		
+		action.add(tempAction);
+	}
 	
 	
 }
