@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="log")
-public class Log {
+public class UserLog {
 
 	//define field
 	
@@ -27,12 +27,12 @@ public class Log {
 	
 	//define constructors
 	
-	public Log() {
+	public UserLog() {
 		
 	}
 
 
-	public Log(String userId, String sessionId) {
+	public UserLog(String userId, String sessionId) {
 		this.userId = userId;
 		this.sessionId = sessionId;
 	}
@@ -68,11 +68,13 @@ public class Log {
 		this.sessionId = sessionId;
 	}
 
-	
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Log [id=" + id + ", userId=" + userId + ", sessionId=" + sessionId + "]";
+	}
+
+		
 	//define toString
 	
 	
