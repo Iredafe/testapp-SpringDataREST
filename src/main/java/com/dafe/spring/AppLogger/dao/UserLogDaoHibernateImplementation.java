@@ -3,8 +3,9 @@ package com.dafe.spring.AppLogger.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.websocket.Session;
 
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,13 +35,15 @@ public class UserLogDaoHibernateImplementation implements UserLogDAO {
 		
 		
 		//create a query
+		Query <UserLog> theQuery = currentSession.createQuery("from UserLog", UserLog.class);
 		
 		//execute query and get result list
 		
+		List<UserLog> userLog = theQuery.getResultList();
+		
 		//return the results
 		
-		
-		return null;
+		return userLog;
 	}
 
 }
