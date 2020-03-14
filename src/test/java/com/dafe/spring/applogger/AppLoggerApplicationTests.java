@@ -1,4 +1,4 @@
-package com.dafe.spring.AppLogger;
+package com.dafe.spring.applogger;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

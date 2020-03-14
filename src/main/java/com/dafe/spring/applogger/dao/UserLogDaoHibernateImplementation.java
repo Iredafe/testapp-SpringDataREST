@@ -1,4 +1,4 @@
-package com.dafe.spring.AppLogger.dao;
+package com.dafe.spring.applogger.dao;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dafe.spring.AppLogger.entity.UserLog;
+import com.dafe.spring.applogger.entity.UserLog;
 
 @Repository
 public class UserLogDaoHibernateImplementation implements UserLogDAO {
@@ -35,7 +35,8 @@ public class UserLogDaoHibernateImplementation implements UserLogDAO {
 		
 		
 		//create a query
-		Query <UserLog> theQuery = currentSession.createQuery("from UserLog", UserLog.class);
+		Query <UserLog> theQuery = 
+				currentSession.createQuery("from UserLog", UserLog.class);
 		
 		//execute query and get result list
 		
@@ -46,4 +47,4 @@ public class UserLogDaoHibernateImplementation implements UserLogDAO {
 		return userLog;
 	}
 
-}
+} 

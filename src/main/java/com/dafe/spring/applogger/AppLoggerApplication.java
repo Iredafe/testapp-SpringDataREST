@@ -1,4 +1,4 @@
-package com.dafe.spring.AppLogger;
+package com.dafe.spring.applogger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
