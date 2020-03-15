@@ -1,81 +1,82 @@
 package com.dafe.spring.applogger.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="log")
 public class UserLog {
 
-	//define field
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
-	
-	@Column(name="user_id")
-	private String userId;
-	
-	@Column(name="session_id")
-	private String sessionId;
-	
-	
-	//define constructors
-	
-	public UserLog() {
-		
-	}
+    //define field
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id")
+    private int id;
+
+    @Column(name="user_id")
+    private String userId;
+
+    @Column(name="session_id")
+    private String sessionId;
+
+    @OneToMany(mappedBy="userLog",cascade=CascadeType.ALL)
+        private List<Action>action;
+    //define constructors
+
+    public UserLog() {
+    	
+    }
+    
+    public UserLog(String userId, String sessionId) {
+        this.userId = userId;
+        this.sessionId = sessionId;
+    }
+    //define getters and setters
 
 
-	public UserLog(String userId, String sessionId) {
-		this.userId = userId;
-		this.sessionId = sessionId;
-	}
-	//define getters and setters
+    public String getUserId() {
+        return userId;
+    }
 
 
-	public int getId() {
-		return id;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getSessionId() {
+        return sessionId;
+    }
 
 
-	public String getUserId() {
-		return userId;
-	}
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public List<Action> getAction() {
+        return action;
+    }
 
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public void setAction(List<Action> action) {
+        this.action = action;
+    }
+
+    @Override
+    public String toString() {
+        return "Log [userId=" + userId + ", sessionId=" + sessionId + "]";
+    }
 
 
-	public String getSessionId() {
-		return sessionId;
-	}
 
-
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Log [id=" + id + ", userId=" + userId + ", sessionId=" + sessionId + "]";
-	}
-
-		
-	//define toString
-	
-	
 }
