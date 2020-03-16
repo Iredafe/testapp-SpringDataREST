@@ -1,7 +1,9 @@
 package com.dafe.spring.applogger.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,6 +37,10 @@ public class Action {
 @ManyToOne
 @JoinColumn(name="log_id")
 private UserLog userLog;
+
+@JsonIgnore
+@OneToMany(mappedBy="action", cascade=CascadeType.ALL)
+private List <Properties> properties;
 
 
     //create and generate constructor
@@ -63,10 +70,18 @@ private UserLog userLog;
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public List<Properties> getProperties() {
+		return properties;
+	}
+
+	public void setProperties(List<Properties> properties) {
+		this.properties = properties;
+	}
 
 	@Override
 	public String toString() {
-		return "Action [time=" + time + ", type=" + type  + "]";
+		return "Action [\n time=" + time + ",\n type=" + type  + "]";
 	}
 
     //generate toString 
