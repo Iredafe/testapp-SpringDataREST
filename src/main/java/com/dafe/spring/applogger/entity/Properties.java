@@ -35,7 +35,6 @@ public class Properties {
 	@Column(name="pageTo")
 	private String pageTo;
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="action_id")
 	private Action action;

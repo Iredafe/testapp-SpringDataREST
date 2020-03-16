@@ -38,7 +38,6 @@ public class Action {
 @JoinColumn(name="log_id")
 private UserLog userLog;
 
-@JsonIgnore
 @OneToMany(mappedBy="action", cascade=CascadeType.ALL)
 private List <Properties> properties;
 
