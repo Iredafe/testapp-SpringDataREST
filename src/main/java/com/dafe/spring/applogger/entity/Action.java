@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -38,8 +38,9 @@ public class Action {
 @JoinColumn(name="log_id")
 private UserLog userLog;
 
-@OneToMany(mappedBy="action", cascade=CascadeType.ALL)
-private List <Properties> properties;
+
+@OneToOne(mappedBy="action", cascade=CascadeType.ALL)
+private Properties properties;
 
 
     //create and generate constructor
@@ -70,11 +71,11 @@ private List <Properties> properties;
 		this.type = type;
 	}
 	
-	public List<Properties> getProperties() {
+	public Properties getProperties() {
 		return properties;
 	}
 
-	public void setProperties(List<Properties> properties) {
+	public void setProperties(Properties properties) {
 		this.properties = properties;
 	}
 

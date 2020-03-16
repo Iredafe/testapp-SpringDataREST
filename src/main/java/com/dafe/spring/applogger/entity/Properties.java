@@ -1,12 +1,13 @@
 package com.dafe.spring.applogger.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +22,10 @@ public class Properties {
 	private int id;
 
 	@Column(name="locationX")
-	private String locationX;
+	private Integer locationX;
 	
 	@Column(name="locationY")
-	private String locationY;
+	private Integer locationY;
 
 	@Column(name="viewedId")
 	private String viewedId;
@@ -35,7 +36,8 @@ public class Properties {
 	@Column(name="pageTo")
 	private String pageTo;
 
-	@ManyToOne
+	@JsonIgnore
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="action_id")
 	private Action action;
 
@@ -44,7 +46,7 @@ public class Properties {
 		
 	}
 	
-	public Properties(String locationX, String locationY, String viewedId, String pageFrom, String pageTo) {
+	public Properties(Integer locationX, Integer locationY, String viewedId, String pageFrom, String pageTo) {
 		this.locationX = locationX;
 		this.locationY = locationY;
 		this.viewedId = viewedId;
@@ -53,19 +55,19 @@ public class Properties {
 	}
 
 
-	public String getLocationX() {
+	public Integer getLocationX() {
 		return locationX;
 	}
 
-	public void setLocationX(String locationX) {
+	public void setLocationX(Integer locationX) {
 		this.locationX = locationX;
 	}
 
-	public String getLocationY() {
+	public Integer getLocationY() {
 		return locationX;
 	}
 
-	public void setLocationY(String locationY) {
+	public void setLocationY(Integer locationY) {
 		this.locationY = locationY;
 	}
 
