@@ -1,6 +1,5 @@
 package com.dafe.spring.applogger.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="log")
@@ -28,7 +28,7 @@ public class UserLog {
 
     @Column(name="session_id")
     private String sessionId;
-
+    
     @OneToMany(mappedBy="userLog",cascade=CascadeType.ALL)
         private List<Action>action;
     //define constructors

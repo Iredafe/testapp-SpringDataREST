@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="action")
@@ -28,27 +30,20 @@ public class Action {
 @Column(name="type")
     private String type;
 
-
+@JsonIgnore
 @ManyToOne
 @JoinColumn(name="log_id")
 private UserLog userLog;
 
-public Action(int id, Timestamp time, String type, UserLog userLog) {
-    this.id = id;
-    this.time = time;
-    this.type = type;
-    this.userLog = userLog;
-}
 
     //create and generate constructor
     public Action() {
 
     }
 
-    public Action(Timestamp time, String type, UserLog userLog) {
+    public Action(Timestamp time, String type) {
 		this.time = time;
 		this.type = type;
-		this.userLog = userLog;
 	}
 
 	//generate getters and setters
@@ -69,17 +64,9 @@ public Action(int id, Timestamp time, String type, UserLog userLog) {
 		this.type = type;
 	}
 
-	public UserLog getUserLog() {
-		return userLog;
-	}
-
-	public void setUserLog(UserLog userLog) {
-		this.userLog = userLog;
-	}
-
 	@Override
 	public String toString() {
-		return "Action [time=" + time + ", type=" + type + ", userLog=" + userLog + "]";
+		return "Action [time=" + time + ", type=" + type  + "]";
 	}
 
     //generate toString 
