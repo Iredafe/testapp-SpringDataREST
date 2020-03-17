@@ -9,24 +9,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dafe.spring.applogger.dao.UserLogDAO;
 import com.dafe.spring.applogger.entity.UserLog;
-// this api selects all the 
+import com.dafe.spring.applogger.service.UserLogService;
+
 @RestController
 @RequestMapping("/api")
 public class UserLogRestController {
 	
-	@Autowired
-	private UserLogDAO userLogDao;
+		private UserLogService userLogService;
 	
 	//inject logDao using constructor injection
-		public UserLogRestController(UserLogDAO theUserLogDao) {
+		@Autowired
+	public UserLogRestController(UserLogService theUserLogService) {
 		
+			userLogService = theUserLogService;
 	}
 
 	//expose logs and return list of logs
 	@GetMapping("/userLog")
 	public List<UserLog> findAll(){
 		
-		return userLogDao.findAll();
+		return userLogService.findAll();
 		
 	}
 	

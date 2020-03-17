@@ -21,6 +21,7 @@ public class Properties {
 	@Column(name="id")
 	private int id;
 
+	
 	@Column(name="locationX")
 	private Integer locationX;
 	
@@ -54,7 +55,7 @@ public class Properties {
 		this.pageTo = pageTo;
 	}
 
-
+	
 	public Integer getLocationX() {
 		return locationX;
 	}
