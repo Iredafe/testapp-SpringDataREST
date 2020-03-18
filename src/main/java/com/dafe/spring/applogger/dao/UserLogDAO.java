@@ -11,7 +11,7 @@ public interface UserLogDAO {
 	public List <UserLog> findAll();
 
 //find the log by id
-public UserLog findById(int theId);
+public UserLog findById(String theUserId);
 
 //	save the log by id
 public void save(UserLog theUserLog);
@@ -19,5 +19,5 @@ public void save(UserLog theUserLog);
 
 	//delete a log by id
 
-public void deleteById(int theId);
+public void deleteById(String theUserId);
 }
