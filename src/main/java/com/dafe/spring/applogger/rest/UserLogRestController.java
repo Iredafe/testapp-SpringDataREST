@@ -47,11 +47,17 @@ public class UserLogRestController {
 	return theUserLog;	
 	}
 	
-//add a new employee
-@PostMapping
+//add mapping POST for a new user
+@PostMapping("/userLog")
 public UserLog addUser(@RequestBody UserLog theUserLog)
 {
-	return null;}
+	
+	//just in case they pass an id in JSoN...set id to 0
+	//this is to force a save of new item instead of update
+	theUserLog.setId(0);
+	userLogService.save(theUserLog);
+	
+	return theUserLog;}
 	
 	
 }

@@ -72,6 +72,11 @@ public class UserLog {
         this.action = action;
     }
 
+
+	public void setId(int id) {
+		
+	}
+
     @Override
     public String toString() {
         return "Log [userId=" + userId + ", sessionId=" + sessionId + "]";
