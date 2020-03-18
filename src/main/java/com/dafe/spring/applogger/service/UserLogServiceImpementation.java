@@ -30,9 +30,9 @@ public class UserLogServiceImpementation implements UserLogService {
 
 	@Override
 	@Transactional
-	public UserLog findById(String theUserId) {
+	public UserLog findById(int theId) {
 		
-		return userLogDAO.findById(theUserId);
+		return userLogDAO.findById(theId);
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class UserLogServiceImpementation implements UserLogService {
 
 	@Override
 	@Transactional
-	public void deleteById(String theUserId) {
-		userLogDAO.deleteById(theUserId);
+	public void deleteById(int theId) {
+		userLogDAO.deleteById(theId);
 		
 	}
 

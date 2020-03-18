@@ -9,11 +9,11 @@ public interface UserLogService {
 
 public List <UserLog> findAll();
 
-public UserLog findById(String theUserId);
+public UserLog findById(int theId);
 
 public void save(UserLog theUserLog);
 
-public void deleteById(String theUserId);
+public void deleteById(int theId);
 
 
 }
