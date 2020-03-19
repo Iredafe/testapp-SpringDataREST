@@ -37,8 +37,9 @@ public class UserLog {
     	
     }
     
-    public UserLog(String userId, String sessionId) {
-        this.userId = userId;
+    public UserLog(int id, String userId, String sessionId) {
+        this.id= id;
+    	this.userId = userId;
         this.sessionId = sessionId;
     }
     //define getters and setters

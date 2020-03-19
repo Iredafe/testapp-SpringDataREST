@@ -3,6 +3,7 @@ package com.dafe.spring.applogger.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,16 +65,31 @@ public UserLog addUser(@RequestBody UserLog theUserLog)
 //add mapping for PUT/userLog to update existing user
 
  @PutMapping("/userLog")
-public UserLog updateUserLog(@RequestBody UserLog theUserLog){
+public UserLog updateUser(@RequestBody UserLog theUserLog){
 
 	userLogService.save(theUserLog);
 	
 	return theUserLog;
 }
 
-	
+//add mapping for DELETE
+ @DeleteMapping("/userLog/{theUserId}")
+ public String deleteUser(@PathVariable int theUserId) {
+	 
+	 UserLog tempUser= userLogService.findById(theUserId);
+	 
+	 userLogService.deleteById(theUserId);
+	 //throw exception if null
+	 
+	 if (tempUser==null) {
+		 throw new RuntimeException("User Id not found - " + theUserId);
+	 }
+	 
+	 userLogService.deleteById(theUserId); 
+ 
+ return "Deleted User Id  - " + theUserId;
 }
-
+}
 
 	
 
