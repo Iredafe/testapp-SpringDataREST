@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dafe.spring.applogger.dao.UserLogDAO;
 import com.dafe.spring.applogger.entity.UserLog;
 import com.dafe.spring.applogger.service.UserLogService;
 
@@ -57,9 +57,23 @@ public UserLog addUser(@RequestBody UserLog theUserLog)
 	theUserLog.setId(0);
 	userLogService.save(theUserLog);
 	
-	return theUserLog;}
+	return theUserLog;
+	}
 	
+	
+//add mapping for PUT/userLog to update existing user
+
+ @PutMapping("/userLog")
+public UserLog updateUserLog(@RequestBody UserLog theUserLog){
+
+	userLogService.save(theUserLog);
+	
+	return theUserLog;
+}
+
 	
 }
+
+
 	
 

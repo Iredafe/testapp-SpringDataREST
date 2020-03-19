@@ -20,4 +20,5 @@ public void save(UserLog theUserLog);
 	//delete a log by id
 
 public void deleteById(int theId);
+
 }

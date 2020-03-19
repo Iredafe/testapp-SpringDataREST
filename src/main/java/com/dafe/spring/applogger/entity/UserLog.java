@@ -72,6 +72,9 @@ public class UserLog {
         this.action = action;
     }
 
+	public int getId() {
+		return id;
+	}
 
 	public void setId(int id) {
 		
@@ -81,7 +84,5 @@ public class UserLog {
     public String toString() {
         return "Log [userId=" + userId + ", sessionId=" + sessionId + "]";
     }
-
-
 
 }

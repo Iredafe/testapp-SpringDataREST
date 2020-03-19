@@ -36,7 +36,7 @@ public class UserLogDaoHibernateImplementation implements UserLogDAO {
 		//create a query
 		Query <UserLog> theQuery = 
 				currentSession.createQuery("from UserLog", UserLog.class);
-		
+	
 		//execute query and get result list
 		
 		List<UserLog> userLog = theQuery.getResultList();
