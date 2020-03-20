@@ -1,4 +1,4 @@
-package com.dafe.spring.applogger;
+package com.dafe.spring.logger;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AppLoggerApplicationTests {
+public class LoggerApplicationTests {
 
 	@Test
 	public void contextLoads() {

@@ -1,13 +1,13 @@
-package com.dafe.spring.applogger;
+package com.dafe.spring.logger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppLoggerApplication {
+public class LoggerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AppLoggerApplication.class, args);
+		SpringApplication.run(LoggerApplication.class, args);
 	}
 
 }
