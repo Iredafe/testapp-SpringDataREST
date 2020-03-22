@@ -2,13 +2,33 @@ package com.dafe.spring.logger.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.dafe.spring.logger.entity.Employee;
 
 public class EmployeeDAOJpaImpl implements EmployeeDAO {
 
+	
+	
+	private EntityManager entityManager;
+	
+	@Autowired
+	public EmployeeDAOJpaImpl(EntityManager theEntityManager) {
+		entityManager = theEntityManager;
+	}
+	
 	@Override
 	public List<Employee> findAll() {
-		// TODO Auto-generated method stub
+		
+		//create a query
+		
+		//execute query and get result list
+		
+		//return the results
+		
+		
 		return null;
 	}
 
