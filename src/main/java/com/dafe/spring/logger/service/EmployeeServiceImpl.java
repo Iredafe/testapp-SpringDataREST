@@ -7,39 +7,37 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dafe.spring.logger.dao.EmployeeDAO;
+import com.dafe.spring.logger.dao.EmployeeRepository;
 import com.dafe.spring.logger.entity.Employee;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-	private EmployeeDAO employeeDAO;
+	private EmployeeRepository employeeRepository;
 	
 	@Autowired
-	public EmployeeServiceImpl(@Qualifier("employeeDAOJpaImpl") EmployeeDAO theEmployeeDAO) {
-		employeeDAO = theEmployeeDAO;
+	public EmployeeServiceImpl(@Qualifier("employeeDAOJpaImpl") EmployeeRepository theEmployeeRepository) {
+		employeeRepository = theEmployeeRepository;
 	}
 	
 	@Override
 	public List<Employee> findAll() {
-		return employeeDAO.findAll();
+		return employeeRepository.findAll();
 	}
 
 	@Override
 	public Employee findById(int theId) {
-		return employeeDAO.findById(theId);
+		return employeeRepository.findById(theId);
 	}
 
 	@Override
-	@Transactional
 	public void save(Employee theEmployee) {
-		employeeDAO.save(theEmployee);
+		employeeRepository.save(theEmployee);
 	}
 
 	@Override
-	@Transactional
 	public void deleteById(int theId) {
-		employeeDAO.deleteById(theId);
+		employeeRepository.deleteById(theId);
 	}
 
 }
