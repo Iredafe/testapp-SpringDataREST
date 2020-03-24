@@ -17,7 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeRepository employeeRepository;
 	
 	@Autowired
-	public EmployeeServiceImpl(@Qualifier("employeeDAOJpaImpl") EmployeeRepository theEmployeeRepository) {
+	public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
 		employeeRepository = theEmployeeRepository;
 	}
 	
