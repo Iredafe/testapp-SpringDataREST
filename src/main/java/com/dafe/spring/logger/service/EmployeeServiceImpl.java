@@ -21,13 +21,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 	
 	@Override
-	@Transactional
 	public List<Employee> findAll() {
 		return employeeDAO.findAll();
 	}
 
 	@Override
-	@Transactional
 	public Employee findById(int theId) {
 		return employeeDAO.findById(theId);
 	}
