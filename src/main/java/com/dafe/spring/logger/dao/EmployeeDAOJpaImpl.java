@@ -55,11 +55,17 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
 		//update the employee with id from db
 		
 		theEmployee.setId(dbEmployee.getId());
-		
-	}
+			}
 
 	@Override
 	public void deleteById(int theId) {
+		
+		//delete object with primary key
+		Query theQuery = entityManager.createQuery("delete from Employee where id=:employeeId");
+		
+		theQuery.setParameter("employeeId", theId);
+		
+		theQuery.executeUpdate();
 		
 	}
 
